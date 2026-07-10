@@ -25,7 +25,17 @@ NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 MAX_NAME_LEN = 64
 MAX_DESC_LEN = 1024
 MAX_BODY_LINES = 500
-KNOWN_KEYS = {"name", "description", "license", "allowed-tools", "metadata"}
+KNOWN_KEYS = {
+    "name",
+    "description",
+    "license",
+    "allowed-tools",
+    "metadata",
+    "argument-hint",
+    "disable-model-invocation",
+    "user-invocable",
+    "model",
+}
 
 
 def parse_frontmatter_naive(text: str) -> dict:

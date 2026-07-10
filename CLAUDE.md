@@ -12,7 +12,7 @@ This repo holds personal Agent Skills. When authoring or editing skills here, fo
 
 - `name`: kebab-case, must equal the directory name, max 64 chars.
 - `description`: third person, states both what the skill does and when to use it (trigger phrases). Max 1024 chars. This is the only text the agent sees before deciding to load the skill — write it for retrieval.
-- Optional keys: `license`, `allowed-tools`, `metadata`.
+- Optional keys: `license`, `allowed-tools`, `metadata`, `argument-hint`, `disable-model-invocation`, `user-invocable`, `model`.
 
 ## Body
 
@@ -23,5 +23,5 @@ This repo holds personal Agent Skills. When authoring or editing skills here, fo
 
 ## Workflow
 
-- After adding or renaming a skill: run `python3 scripts/validate.py` and add/update the row in the README skills table.
-- Validation must pass before committing.
+- Any change that adds, renames, or removes a skill MUST update the README `## Skills` table in the same change: one row per skill, alphabetical, linked as `skills/<name>/`, with a one-line description consistent with the skill's frontmatter. A skill without a README row is an incomplete change — do not stop or commit until the table is updated.
+- Run `python3 scripts/validate.py` after every skill change; it must pass before committing.

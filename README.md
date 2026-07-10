@@ -8,7 +8,7 @@ A skill is a directory containing a `SKILL.md` file with YAML frontmatter (`name
 
 ## Repository structure
 
-```
+```text
 skills/
 ├── README.md            # this file
 ├── CLAUDE.md            # authoring conventions enforced in this repo
@@ -32,7 +32,8 @@ skills/
 
 | Skill | Description |
 |-------|-------------|
-| _none yet_ | |
+| [agent-signals](skills/agent-signals/) | Push a signal to the user's devices via their agent-signals broker (MCP `notify` tool or HTTP) when a task finishes, blocks on input, or finds something noteworthy. |
+| [clone-skill](skills/clone-skill/) | Clone a skill into this repo — from an existing skill here, a local path, or a git URL — with a mandatory static security audit before integration. Also runs the audit standalone. |
 
 ## Installation
 
