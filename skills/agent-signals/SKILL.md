@@ -43,6 +43,25 @@ directly:
 
 Expected result text: `Signal delivered (id=…, kind=…).`
 
+**Reaching Telegram vs the app.** A plain signal goes to the macOS app / SSE
+only. To ALSO relay it to the user's Telegram, add `"relay": true` to the
+payload (it's opt-in; absent/false = app only). Relay still requires the user to
+have configured a bot + subscription in the dashboard.
+
+### Get a reply back: the `ask` tool
+
+When you need the user's decision/approval/input to continue and they may be away
+from the machine, call the `ask` MCP tool instead of just printing a question. It
+delivers the question to their Telegram and BLOCKS until they reply, returning
+their answer as the tool result:
+
+```json
+{ "question": "Deploy to prod now, or wait for review?", "timeout_seconds": 180 }
+```
+
+Returns `User replied: <their text>`, or a no-reply notice on timeout. Keep the
+question short and specific; use it only when an answer is actually required.
+
 ### Fallback path: HTTP POST
 
 When the MCP tool is not connected, use curl. Credentials live in
